@@ -6,23 +6,23 @@ from blueprints.client.model import Client
 class User(db.Model):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
-    client_id = db.Column(db.Integer, ForeignKey(Client.client_id))
-    name = db.Column(db.String(30), unique = True, nullable = False)
-    age = db.Column(db.Integer, nullable = False, default = 20)
-    sex = db.Column(db.String(10), nullable = False)
+    name_male = db.Column(db.String(30), unique = True, nullable = False)
+    bod_male = db.Column(db.DateTime())
+    name_female = db.Column(db.String(30), unique = True, nullable = False)
+    bod_female = db.Column(db.DateTime())
+     
 
     response_fields = {
         'id' : fields.Integer,
-        'client_id' : fields.Integer,
-        'name' : fields.String,
-        'age' : fields.Integer,
-        'sex' : fields.String
+        'name_male' : fields.String,
+        'bod_male' : fields.String,
+        'name_female' : fields.String,
+        'bod_female' : fields.String
     }    
 
     def __init__(self,name,age,sex):
-        self.name = name
-        self.age = age
-        self.sex = sex
+        self.name_male = name
+       
 
     def __repr__(self):
         return '<User %r>' % self.id
