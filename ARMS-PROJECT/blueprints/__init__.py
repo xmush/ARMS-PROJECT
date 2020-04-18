@@ -52,11 +52,11 @@ def after_request(response):
     else: 
         app.logger.error("")
     return response
-# from blueprints.user.resources import bp_user 
-# app.register_blueprint(bp_user, url_prefix = '/user')
+from blueprints.user.resources import bp_user 
+app.register_blueprint(bp_user, url_prefix = '/user')
 
-# from blueprints.book.resources import bp_book 
-# app.register_blueprint(bp_book, url_prefix = '/book')
+from blueprints.client.resources import bp_client 
+app.register_blueprint(bp_client, url_prefix = '/client')
 
 
 

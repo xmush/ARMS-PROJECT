@@ -7,8 +7,8 @@ cfg.read('config.cfg')
 
 class Config():
     
-    JWT_SECRET_KEY = cfg['secret_key']['key']
-    JWT_ACCES_TOKEN_EXPIRES = timedelta(days=1)
+    JWT_SECRET_KEY = cfg['jwt']['key']
+    JWT_ACCES_TOKEN_EXPIRES = timedelta(days=int(cfg['jwt']['time_live']))
     # WIO_HOST = cfg['host']['wio_host']
 class DevelopmentConfig(Config):
     APP_DEBUG = True
@@ -19,7 +19,7 @@ class DevelopmentConfig(Config):
    
 class ProductionConfig(Config):
     APP_DEBUG = True
-    DEBUG = True
+    DEBUG = False
     MAX_BYTES = 100000
     APP_PORT = cfg['app']['port']
     APP_HOST = cfg['app']['host']
