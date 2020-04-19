@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restful import Resource, Api,reqparse, marshal, inputs
 from .model import User
-from blueprints import db, app,internal_required
+from blueprints import db, app #,internal_required
 from sqlalchemy import desc
 
 bp_user = Blueprint('user',__name__)

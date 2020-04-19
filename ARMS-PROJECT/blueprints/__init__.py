@@ -1,4 +1,4 @@
-import json,logging,config,os
+import json,logging, config, os
 from functools import wraps
 from flask_restful import fields, Resource, Api
 from flask import Flask, request
@@ -10,19 +10,19 @@ from flask_jwt_extended import JWTManager, verify_jwt_in_request,get_jwt_claims
 
 app = Flask(__name__)
 
-jwt = JWTManager(app)
+# jwt = JWTManager(app)
 
 
-def internal_required(fn):
-    @wraps(fn)
-    def wrapper (*args, **kwargs):
-        verify_jwt_in_request()
-        claims = get_jwt_claims()
-        if not claims['internal']:
-            return {'status' : 'FORBIDDEN', 'message' : 'Internal Only!'}, 403
-        else:
-            return fn(*args, **kwargs) 
-    return wrapper
+# def internal_required(fn):
+#     @wraps(fn)
+#     def wrapper (*args, **kwargs):
+#         verify_jwt_in_request()
+#         claims = get_jwt_claims()
+#         if not claims['internal']:
+#             return {'status' : 'FORBIDDEN', 'message' : 'Internal Only!'}, 403
+#         else:
+#             return fn(*args, **kwargs) 
+#     return wrapper
 
 if os.environ.get('FLASK_ENV', 'Production') == "Production":
     app.config.from_object(config.ProductionConfig)
@@ -52,11 +52,18 @@ def after_request(response):
     else: 
         app.logger.error("")
     return response
+
+
+
 from blueprints.user.resources import bp_user 
 app.register_blueprint(bp_user, url_prefix = '/user')
 
-from blueprints.client.resources import bp_client 
-app.register_blueprint(bp_client, url_prefix = '/client')
+from blueprints.bodtozod import bp_zodiak
+app.register_blueprint(bp_zodiak, url_prefix = '/zodiak')
+
+from blueprints.zdetail import bp_zodiakDetail
+app.register_blueprint(bp_zodiakDetail, url_prefix = '/detail')
+
 
 
 

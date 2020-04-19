@@ -1,12 +1,12 @@
 from blueprints import db
 from flask_restful import fields
 from sqlalchemy import Integer, ForeignKey, String, Column
-from blueprints.client.model import Client
+# from blueprints.client.model import Client
 
 class User(db.Model):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
-    client_id = db.Column(db.Integer, ForeignKey(Client.client_id))
+    # client_id = db.Column(db.Integer, ForeignKey(Client.client_id))
     name = db.Column(db.String(30), unique = True, nullable = False)
     age = db.Column(db.Integer, nullable = False, default = 20)
     sex = db.Column(db.String(10), nullable = False)

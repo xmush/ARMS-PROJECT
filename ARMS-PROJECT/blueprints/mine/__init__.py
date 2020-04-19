@@ -2,8 +2,7 @@ from flask import Blueprint
 from flask_restful import Api, Resource, reqparse, marshal
 from flask_jwt_extended import create_access_token, get_jwt_identity, get_jwt_claims,jwt_required
 import hashlib
-from blueprints import db, internal_required
-from ..client.model import Client
+from blueprints import db #, internal_required
 
 bp_auth = Blueprint('auth',__name__)
 api = Api(bp_auth)
@@ -27,23 +26,4 @@ class CreateTokenResource(Resource):
         else:
             return {'status' : 'UNAUTHORIZED', 'message': 'invalid key or secret'}, 401
 
-    @jwt_required
-    def post(self):
-        claims = get_jwt_claims()
-        return {'claims' : claims}, 200
-    
-   
-
-class RefreshTokenResource(Resource):
-
-    @jwt_required
-    @internal_required
-    def post(self):
-        current_user = get_jwt_claims()
-        token = create_access_token(identity=current_user)
-        return {'token' : token}, 200
-
-    
-
 api.add_resource(CreateTokenResource,'')
-api.add_resource(RefreshTokenResource,'/refresh')

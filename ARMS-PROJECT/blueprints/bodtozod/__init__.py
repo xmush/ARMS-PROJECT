@@ -1,31 +1,40 @@
-from blueprints import db
-from flask_restful import fields
-from sqlalchemy import Integer, ForeignKey, String, Column
+import requests
+from flask import Blueprint
+from flask_restful import Api, reqparse, Resource, marshal
+from blueprints import app
+# from flask_jwt_extended import jwt_required
+
+bp_zodiak = Blueprint('zodiak', __name__)
+api = Api(bp_zodiak)
 
 
-class Bod(db.Model):
-    __tablename__ = "bod"
-    id = db.Column(db.Integer, primary_key = True, autoincrement = True)
-    name_male = db.Column(db.String(30), unique = True, nullable = False)
-    bod_male = db.Column(db.DateTime())
-    name_female = db.Column(db.String(30), unique = True, nullable = False)
-    bod_female = db.Column(db.DateTime())
-     
+class ZodiakResource(Resource):
 
-    response_fields = {
-        'id' : fields.Integer,
-        'name_male' : fields.String,
-        'bod_male' : fields.String,
-        'name_female' : fields.String,
-        'bod_female' : fields.String
-    }    
+    # get zodiak detail host
+    host = app.config['ZODIAK_HOST']
+    service = app.config['ZODIAK_SERVICE']
 
-    def __init__(self,name_male, bod_male, name_female, bod_female):
-        self.name_male = name_male
-        self.bod_male = bod_male
-        self.name_female = name_female
-        self.bod_female = bod_female
-       
+    # get function for get detail horscope from zodiak parameter
+    def get(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('name', location='args', required=True)
+        parser.add_argument('bod', location='args', required=True)
+        args = parser.parse_args()
 
-    def __repr__(self):
-        return '<Bod %r>' % self.id
+        url = ('%sservice=%s&nama=%s&tanggal=%s' % (self.host, self.service, args['name'], args['bod']))
+        response = requests.get(url)
+
+        return response.json(), 200, {'Content-Type': 'application/json'}
+        
+        # url = ('%s?sign=%s&day=today' % (self.host,args['zodiak']))
+        # payload = "{}"
+        # headers = {
+        # 'Content-Type': 'application/json'
+        # }
+        # print(url)
+        # response = requests.request("POST", url, headers=headers, data = payload)
+
+        # return response.json(), 200, {'Content-Type': 'application/json'}
+
+
+api.add_resource(ZodiakResource, '')

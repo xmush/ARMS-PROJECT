@@ -1,0 +1,81 @@
+[2020-04-18 16:42:20,089]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:53} ERROR - 
+[2020-04-18 16:42:27,367]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:53} ERROR - 
+[2020-04-18 17:13:00,449]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:53} ERROR - 
+[2020-04-18 17:13:13,637]{/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /detail [GET]
+Traceback (most recent call last):
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 472, in wrapper
+    return self.make_response(data, code, headers=headers)
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 501, in make_response
+    resp = self.representations[mediatype](data, *args, **kwargs)
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask_restful/representations/json.py", line 21, in output_json
+    dumped = dumps(data, **settings) + "\n"
+  File "/usr/lib/python3.6/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'method' is not JSON serializable
+[2020-04-18 17:13:13,644]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:53} ERROR - 
+[2020-04-18 17:14:11,595]{/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /detail [GET]
+Traceback (most recent call last):
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 472, in wrapper
+    return self.make_response(data, code, headers=headers)
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 501, in make_response
+    resp = self.representations[mediatype](data, *args, **kwargs)
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask_restful/representations/json.py", line 21, in output_json
+    dumped = dumps(data, **settings) + "\n"
+  File "/usr/lib/python3.6/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'method' is not JSON serializable
+[2020-04-18 17:14:11,597]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:53} ERROR - 
+[2020-04-18 17:14:22,903]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/detail?zodiak=leo", "request": null, "response": {"error": "API key is required."}}
+[2020-04-18 17:16:46,626]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/detail?zodiak=leo", "request": null, "response": {"error": "API key is required."}}
+[2020-04-18 17:17:04,077]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:53} ERROR - 
+[2020-04-18 17:47:10,450]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/detail?zodiak=leo", "request": null, "response": {"error": "API key is required."}}
+[2020-04-18 17:51:08,211]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/detail?zodiak=leo", "request": null, "response": {"error": "API key is required."}}
+[2020-04-18 17:51:11,693]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/detail?zodiak=leo", "request": null, "response": {"error": "API key is required."}}
+[2020-04-18 17:51:22,036]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/detail?zodiak=leo", "request": null, "response": {"message": "The browser (or proxy) sent a request that this server could not understand."}}
+[2020-04-18 17:52:01,153]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/detail?zodiak=leo", "request": null, "response": {"date_range": "Jul 23 - Aug 22", "current_date": "April 18, 2020", "description": "You've done everything you can in a situation like this. Your mission now is to look forward even as you're realizing that there are all kinds of wonderful lessons to be learned from the past.", "compatibility": "Scorpio", "mood": "Focus", "color": "Shadow Black", "lucky_number": "53", "lucky_time": "7am"}}
+[2020-04-18 19:12:36,289]{/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /zodiak [GET]
+Traceback (most recent call last):
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta2/Documents/RestApiProject/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/bodtozod/__init__.py", line 20, in get
+    parser=add_argument('name', location='args', required=True)
+NameError: name 'add_argument' is not defined
+[2020-04-18 19:12:36,292]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:53} ERROR - 
+[2020-04-18 19:13:50,886]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/zodiak?name=romli&bod=19-02-1991", "request": null, "response": null}
+[2020-04-18 19:14:20,888]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/zodiak?name=romli&bod=19-02-1991", "request": null, "response": null}
+[2020-04-18 19:14:30,552]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/zodiak?name=romli&bod=19-02-1991", "request": null, "response": null}
+[2020-04-18 19:15:29,034]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/zodiak?name=romli&bod=19-02-1991", "request": null, "response": null}
+[2020-04-18 19:20:44,621]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/zodiak?name=romli&bod=19-02-1991", "request": null, "response": null}
+[2020-04-18 19:20:56,385]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/zodiak?name=romli&bod=19-02-1991", "request": null, "response": {"status": "success", "data": {"nama": "romli", "lahir": "Selasa Kliwon, 19 Februari 1991", "usia": "29 Tahun 2 Bulan 0 Hari", "ultah": "10 Bulan 6 Hari", "zodiak": "Pisces"}}}
+[2020-04-18 20:13:55,236]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/zodiak?name=romli&bod=19-02-1991", "request": null, "response": {"status": "success", "data": {"nama": "romli", "lahir": "Selasa Kliwon, 19 Februari 1991", "usia": "29 Tahun 2 Bulan 0 Hari", "ultah": "10 Bulan 6 Hari", "zodiak": "Pisces"}}}
+[2020-04-18 20:17:58,417]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/detail?zodiak=Pisces", "request": null, "response": {"date_range": "Feb 19 - Mar 20", "current_date": "April 19, 2020", "description": "Your generosity knows absolutely no bounds, as evidenced by the lengths you're perpetually willing to go to for your loved ones. That goes double for now, no matter what they ask of you -- or if they actually ask at all.", "compatibility": "Aquarius", "mood": "Generous", "color": "Spring Green", "lucky_number": "20", "lucky_time": "6am"}}
+[2020-04-18 23:19:57,768]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/zodiak?name=romli&bod=19-02-1991", "request": null, "response": {"status": "success", "data": {"nama": "romli", "lahir": "Selasa Kliwon, 19 Februari 1991", "usia": "29 Tahun 2 Bulan 0 Hari", "ultah": "10 Bulan 6 Hari", "zodiak": "Pisces"}}}
+[2020-04-18 23:20:21,989]{/home/alta2/Documents/RestApiProject/ARMS-PROJECT/blueprints/__init__.py:50} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/detail?zodiak=Pisces", "request": null, "response": {"date_range": "Feb 19 - Mar 20", "current_date": "April 19, 2020", "description": "Your generosity knows absolutely no bounds, as evidenced by the lengths you're perpetually willing to go to for your loved ones. That goes double for now, no matter what they ask of you -- or if they actually ask at all.", "compatibility": "Aquarius", "mood": "Generous", "color": "Spring Green", "lucky_number": "20", "lucky_time": "6am"}}
