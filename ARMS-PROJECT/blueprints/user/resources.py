@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restful import Resource, Api,reqparse, marshal, inputs
 from .model import User
-from blueprints import db, app
+from blueprints import db, app, internal_required
 from sqlalchemy import desc
 import uuid, hashlib
 
@@ -12,13 +12,13 @@ api = Api(bp_user)
 
 class UserResource(Resource):
 
-    # @internal_required 
+    @internal_required 
     def get(self,id=None): 
         qry = User.query.get(id)
         if qry is not None:
             return marshal(qry, User.response_fields),200
         return {'status' : 'NOT_FOUND'}, 404
-    # @internal_required 
+    @internal_required 
     def post(self): 
         parser = reqparse.RequestParser()
         parser.add_argument('name', location='json', required=True)
@@ -36,7 +36,7 @@ class UserResource(Resource):
         app.logger.debug('DEBUG : %s', user )
         return marshal(user, User.response_fields), 200 , {'Content-Type':'application/json'}
     
-    # @internal_required 
+    @internal_required 
     def put(self,id): 
         parser = reqparse.RequestParser()
         parser.add_argument('name', location='json', required=True)
@@ -55,7 +55,7 @@ class UserResource(Resource):
 
         return marshal(qry, User.response_fields),200
 
-    # @internal_required 
+    @internal_required 
     def delete(self,id):
         qry = User.query.get(id)
         if qry is None:
@@ -63,14 +63,14 @@ class UserResource(Resource):
         db.session.delete(qry)
         db.session.commit()
        
-    # @internal_required 
+    @internal_required 
     def patch(self): 
         return 'Not yet implement',501
 
 class UserList(Resource):
     def __init__(self):
         pass
-    # @internal_required 
+    @internal_required 
     def get(self):
         parser = reqparse.RequestParser()
         parser.add_argument('p', type=int, location='args', default=1)
@@ -80,7 +80,10 @@ class UserList(Resource):
         parser.add_argument('sort', location='args', help='invalid sort value', choices=('desc', 'asc'))
 
         args = parser.parse_args()
-        offset = (args['p'] * args['rp']) - args['rp']
+        if args['p'] == 1:
+            offset = 0
+        else:
+            offset = (args['p'] * args['rp']) - args['rp']
         qry = User.query
         if args['name'] is not None:
             qry = qry.filter_by(name=args['name'])
@@ -91,14 +94,20 @@ class UserList(Resource):
                     qry = qry.order_by(desc(User.name))
                 else:
                     qry =  qry.order_by(User.name)
-            elif args['orderby'] == 'name':
+            elif args['orderby'] == 'status':
                 if args['sort'] == 'desc':
-                    qry = qry.order_by(desc(User.name))
+                    qry = qry.order_by(desc(User.status))
                 else:
-                    qry =  qry.order_by(User.name)
+                    qry = qry.order_by(User.status)
+            elif args['orderby'] == 'id':
+                if args['sort'] == 'desc':
+                    qry = qry.order_by(desc(User.id))
+                else:
+                    qry = qry.order_by(User.id)
         rows = []
         for row in qry.limit(args['rp']).offset(offset).all():
             rows.append(marshal(row, User.response_fields))
+        
         return rows, 200
 api.add_resource(UserList,'','/list')
 api.add_resource(UserResource, '', '/<id>')
