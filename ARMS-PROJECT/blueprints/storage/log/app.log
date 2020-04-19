@@ -1,0 +1,135 @@
+[2020-04-19 16:25:07,422]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:54} ERROR - 
+[2020-04-19 16:25:42,370]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/auth?name=Kristin%20Reese&password=KristinReese", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyODgzNDIsIm5iZiI6MTU4NzI4ODM0MiwianRpIjoiMTFiZWU4NjgtYzNmNC00ZGRiLTljM2ItZGRlYmE5MWVjYTZlIiwiZXhwIjoxNTg3Mjg5MjQyLCJpZGVudGl0eSI6IktyaXN0aW4gUmVlc2UiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJpZCI6MywibmFtZSI6IktyaXN0aW4gUmVlc2UiLCJwYXNzd29yZCI6IjAwYTY1NDY3ZjdmYmM5NmRhZDY3ZjEzNTJmNjIwY2QwOGM4YjgxNjQ3ZjlhM2VkYzBkNTU0ZDFlMWE2ZGQ3YzVhYmJlZTA1OTlhYjIyNWFiMDVhMGU3YjBkN2IwOWNlNzA2NDJhODA1OTkwYWYyZDRhYjE0Zjk5YmY5OTRmZTQ4Iiwic3RhdHVzIjp0cnVlfX0.k1y0KGo0HdIRrkefOP9EF831U0eFrcheOcO26YuVUl8"}}
+[2020-04-19 16:25:54,339]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "uri": "/auth/refresh?", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyODgzNTQsIm5iZiI6MTU4NzI4ODM1NCwianRpIjoiYWZiYmU4MTYtNDg3ZC00OGEwLTk1NWItMDg4MjhiN2I4YWIzIiwiZXhwIjoxNTg3Mjg5MjU0LCJpZGVudGl0eSI6eyJpZCI6MywibmFtZSI6IktyaXN0aW4gUmVlc2UiLCJwYXNzd29yZCI6IjAwYTY1NDY3ZjdmYmM5NmRhZDY3ZjEzNTJmNjIwY2QwOGM4YjgxNjQ3ZjlhM2VkYzBkNTU0ZDFlMWE2ZGQ3YzVhYmJlZTA1OTlhYjIyNWFiMDVhMGU3YjBkN2IwOWNlNzA2NDJhODA1OTkwYWYyZDRhYjE0Zjk5YmY5OTRmZTQ4Iiwic3RhdHVzIjp0cnVlfSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.AgB2lWnNwLcLgIYIpLQaBj_KrXEzzdSrevnAQvO67Ic"}}
+[2020-04-19 16:26:23,539]{/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /user/list [GET]
+Traceback (most recent call last):
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py", line 21, in wrapper
+    if not claims['status']:
+KeyError: 'status'
+[2020-04-19 16:26:23,542]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:54} ERROR - 
+[2020-04-19 16:27:20,931]{/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /user/list [GET]
+Traceback (most recent call last):
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py", line 19, in wrapper
+    verify_jwt_in_request()
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 32, in verify_jwt_in_request
+    jwt_data, jwt_header = _decode_jwt_from_request(request_type='access')
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 314, in _decode_jwt_from_request
+    raise NoAuthorizationError(errors[0])
+flask_jwt_extended.exceptions.NoAuthorizationError: Missing Authorization Header
+[2020-04-19 16:27:20,932]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:54} ERROR - 
+[2020-04-19 16:27:57,735]{/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /user/2 [GET]
+Traceback (most recent call last):
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py", line 21, in wrapper
+    if not claims['status']:
+KeyError: 'status'
+[2020-04-19 16:27:57,736]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:54} ERROR - 
+[2020-04-19 16:38:25,765]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/auth?name=Kristin%20Reese&password=KristinReese", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyODkxMDUsIm5iZiI6MTU4NzI4OTEwNSwianRpIjoiMjQxZWQ3MWUtYzVjMC00NmQ2LWJjYTYtYzg2MDY1NjgwNTE0IiwiZXhwIjoxNTg3MjkwMDA1LCJpZGVudGl0eSI6IktyaXN0aW4gUmVlc2UiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJpZCI6MywibmFtZSI6IktyaXN0aW4gUmVlc2UiLCJwYXNzd29yZCI6IjAwYTY1NDY3ZjdmYmM5NmRhZDY3ZjEzNTJmNjIwY2QwOGM4YjgxNjQ3ZjlhM2VkYzBkNTU0ZDFlMWE2ZGQ3YzVhYmJlZTA1OTlhYjIyNWFiMDVhMGU3YjBkN2IwOWNlNzA2NDJhODA1OTkwYWYyZDRhYjE0Zjk5YmY5OTRmZTQ4Iiwic3RhdHVzIjp0cnVlfX0.zlXgEVqyXWtBx2PWwFt1mIUweL87iL8zY4m8T7j5Vuw"}}
+[2020-04-19 16:42:24,320]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "uri": "/auth/refresh?", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyODkzNDQsIm5iZiI6MTU4NzI4OTM0NCwianRpIjoiZjU2OGQyOTQtNjZkMS00ZmMzLTlhYTMtNmJjYWIzODg3NzcxIiwiZXhwIjoxNTg3MjkwMjQ0LCJpZGVudGl0eSI6eyJpZCI6MywibmFtZSI6IktyaXN0aW4gUmVlc2UiLCJwYXNzd29yZCI6IjAwYTY1NDY3ZjdmYmM5NmRhZDY3ZjEzNTJmNjIwY2QwOGM4YjgxNjQ3ZjlhM2VkYzBkNTU0ZDFlMWE2ZGQ3YzVhYmJlZTA1OTlhYjIyNWFiMDVhMGU3YjBkN2IwOWNlNzA2NDJhODA1OTkwYWYyZDRhYjE0Zjk5YmY5OTRmZTQ4Iiwic3RhdHVzIjp0cnVlfSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIn0.TQjWeU_pzfWnlVW4Big5MRMRtN-xmMBF3KXc1JPWGHQ"}}
+[2020-04-19 16:47:21,274]{/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /user/2 [GET]
+Traceback (most recent call last):
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py", line 21, in wrapper
+    if not claims['status']:
+KeyError: 'status'
+[2020-04-19 16:47:21,276]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:54} ERROR - 
+[2020-04-19 16:49:40,316]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/auth?name=Kristin%20Reese&password=KristinReese", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyODk3ODAsIm5iZiI6MTU4NzI4OTc4MCwianRpIjoiOTAwYWZiYWUtNjgzMC00MWY5LTkxYzktOWE1ODExZWU5NDE4IiwiZXhwIjoxNTg3MjkwNjgwLCJpZGVudGl0eSI6IktyaXN0aW4gUmVlc2UiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJzdGF0dXMiOnRydWV9fQ.RBTONfk1APkb15CLe-ihqwftcLN_qVR5vZdDfglBNeo"}}
+[2020-04-19 16:49:52,362]{/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /auth/refresh [POST]
+Traceback (most recent call last):
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py", line 21, in wrapper
+    if not claims['identity']:
+KeyError: 'identity'
+[2020-04-19 16:49:52,365]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:54} ERROR - 
+[2020-04-19 16:50:54,276]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/auth?name=Kristin%20Reese&password=KristinReese", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyODk4NTQsIm5iZiI6MTU4NzI4OTg1NCwianRpIjoiNzI1OTAxMjUtZWYzZS00OTZkLWIzMGUtZGJiYWQwNjgyNTdhIiwiZXhwIjoxNTg3MjkwNzU0LCJpZGVudGl0eSI6IktyaXN0aW4gUmVlc2UiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJzdGF0dXMiOnRydWV9fQ.vcarqolqgrv5BtE46OPrhh33Re1Jm6jybm9LdcvhoL0"}}
+[2020-04-19 16:51:06,455]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "uri": "/auth/refresh?", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyODk4NjYsIm5iZiI6MTU4NzI4OTg2NiwianRpIjoiYTA5NDRmMTItNGZiZS00OWQyLWJjZDQtOGM3NDZkM2M2OGNiIiwiZXhwIjoxNTg3MjkwNzY2LCJpZGVudGl0eSI6eyJzdGF0dXMiOnRydWV9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.0tmEhh-Frn6qTWWv1PE5yhFpH_-vtYdz9W8c2x2PGMM"}}
+[2020-04-19 16:51:32,938]{/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /user/2 [GET]
+Traceback (most recent call last):
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py", line 21, in wrapper
+    if not claims['status']:
+KeyError: 'status'
+[2020-04-19 16:51:32,940]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:54} ERROR - 
+[2020-04-19 16:52:17,411]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/auth?name=Kristin%20Reese&password=KristinReese", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyODk5MzcsIm5iZiI6MTU4NzI4OTkzNywianRpIjoiMTRlMjE0MjAtZTU4Zi00M2U3LWFiYjUtNjI0MTk2MDg0NmIwIiwiZXhwIjoxNTg3MjkwODM3LCJpZGVudGl0eSI6IktyaXN0aW4gUmVlc2UiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJzdGF0dXMiOnRydWV9fQ.XlhDcF_J_X0EWir_a2jcUDx1KooIyVgyWVfWc0LCasE"}}
+[2020-04-19 16:52:29,272]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/user/2?", "request": null, "response": {"id": 2, "name": "Leslie Hayden", "password": "b1580578303786f7825fafef515cfca360ae9d5b9c6d6d79df4cbf90031fe38981d0fc1b5aba225b3deedc02657aff9b40ddea799543f2cc17e70927eb627ce5", "status": "False"}}
+[2020-04-19 16:55:00,374]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/auth?name=Kristin%20Reese&password=KristinReese", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyOTAxMDAsIm5iZiI6MTU4NzI5MDEwMCwianRpIjoiMTgwODA0MmQtMTZhMy00MGIzLTgzYmEtMDJhMmRkMzFiMzdhIiwiZXhwIjoxNTg3MjkxMDAwLCJpZGVudGl0eSI6IktyaXN0aW4gUmVlc2UiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJzdGF0dXMiOnRydWV9fQ.T2nmDE9Rg1LJnrrJeEJa4SrmSnwpXsSRsZXWiZYdyis"}}
+[2020-04-19 16:55:25,846]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "uri": "/auth/refresh?", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyOTAxMjUsIm5iZiI6MTU4NzI5MDEyNSwianRpIjoiOTVkODlkOWQtNDViNy00NzBjLThlNGItODJlZjc3ZGQ1NmM4IiwiZXhwIjoxNTg3MjkxMDI1LCJpZGVudGl0eSI6eyJzdGF0dXMiOnRydWV9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.GFmLQIccUDRPK-qbJ34iKVkmWAKRXmn138UfNRrwDTA"}}
+[2020-04-19 16:55:40,693]{/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /user/2 [GET]
+Traceback (most recent call last):
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/venv/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py", line 21, in wrapper
+    if not claims['status']:
+KeyError: 'status'
+[2020-04-19 16:55:40,694]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:54} ERROR - 
+[2020-04-19 16:56:31,828]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "uri": "/auth/refresh?", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyOTAxOTEsIm5iZiI6MTU4NzI5MDE5MSwianRpIjoiMjgyMjcyNTYtYTc0ZS00MTdjLTg1OTgtMDM5MGJmNGVhODlmIiwiZXhwIjoxNTg3MjkxMDkxLCJpZGVudGl0eSI6eyJzdGF0dXMiOnRydWV9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.1tiBsaCqqDRrAN_5tcVp6O7b0-4CbnUMizS_-cqL3Hw"}}
+[2020-04-19 16:57:06,444]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "uri": "/auth/refresh?", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyOTAyMjYsIm5iZiI6MTU4NzI5MDIyNiwianRpIjoiOWQ0N2RkZDAtMmNlYS00NWU1LWFhMzMtMTVlNGFlZDBhOGYwIiwiZXhwIjoxNTg3MjkxMTI2LCJpZGVudGl0eSI6eyJzdGF0dXMiOnRydWV9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.cyKbCr_IXahPzqPjGrxPpiTwqNk-Sbbvm5s0LqctRpk"}}
+[2020-04-19 16:58:03,371]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/auth?name=Kristin%20Reese&password=KristinReese", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyOTAyODMsIm5iZiI6MTU4NzI5MDI4MywianRpIjoiYTAyYTU2YzMtY2U0Ny00M2FlLWI5YmYtZTc4OGQ1MDNmOTVkIiwiZXhwIjoxNTg3MjkxMTgzLCJpZGVudGl0eSI6IktyaXN0aW4gUmVlc2UiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJzdGF0dXMiOnRydWV9fQ.VVwJQW6A-k3OlEX87M37a8S4tBc0WK2ELYkQdP3bdYg"}}
+[2020-04-19 16:58:49,522]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "uri": "/auth/refresh?", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyOTAzMjksIm5iZiI6MTU4NzI5MDMyOSwianRpIjoiZjA5ZGJkOGMtNTJiZi00MDdhLWE3OTEtY2Y2MDdmYzRhMWNiIiwiZXhwIjoxNTg3MjkxMjI5LCJpZGVudGl0eSI6eyJzdGF0dXMiOnRydWV9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MifQ.kUsJbLJ1Jjl_DfxliB_0x3fjRoh_IcrbhUVAOgbMpMs"}}
+[2020-04-19 17:00:37,393]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "uri": "/auth/refresh?", "request": null, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODcyOTA0MzcsIm5iZiI6MTU4NzI5MDQzNywianRpIjoiODA4MTQ4OGItYzBjYy00ODJlLWFkMWMtMmQyMTQ3OTI1ZjZkIiwiZXhwIjoxNTg3MjkxMzM3LCJpZGVudGl0eSI6IktyaXN0aW4gUmVlc2UiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJzdGF0dXMiOnRydWV9fQ.TRO4C9b4W6DV-G4UdK2BM2q0HOW83RO_9-XruSnU9HI"}}
+[2020-04-19 17:01:27,922]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/user/2?", "request": null, "response": {"id": 2, "name": "Leslie Hayden", "password": "b1580578303786f7825fafef515cfca360ae9d5b9c6d6d79df4cbf90031fe38981d0fc1b5aba225b3deedc02657aff9b40ddea799543f2cc17e70927eb627ce5", "status": "False"}}
+[2020-04-19 17:01:35,224]{/home/alta1/Documents/ARMS-PROJECT/ARMS-PROJECT/blueprints/__init__.py:51} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "uri": "/user/3?", "request": null, "response": {"id": 3, "name": "Kristin Reese", "password": "00a65467f7fbc96dad67f1352f620cd08c8b81647f9a3edc0d554d1e1a6dd7c5abbee0599ab225ab05a0e7b0d7b09ce70642a805990af2d4ab14f99bf994fe48", "status": "True"}}
