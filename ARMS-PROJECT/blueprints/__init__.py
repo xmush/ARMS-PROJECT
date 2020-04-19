@@ -10,19 +10,19 @@ from flask_jwt_extended import JWTManager, verify_jwt_in_request,get_jwt_claims
 
 app = Flask(__name__)
 
-# jwt = JWTManager(app)
+jwt = JWTManager(app)
 
 
-# def internal_required(fn):
-#     @wraps(fn)
-#     def wrapper (*args, **kwargs):
-#         verify_jwt_in_request()
-#         claims = get_jwt_claims()
-#         if not claims['internal']:
-#             return {'status' : 'FORBIDDEN', 'message' : 'Internal Only!'}, 403
-#         else:
-#             return fn(*args, **kwargs) 
-#     return wrapper
+def internal_required(fn):
+    @wraps(fn)
+    def wrapper (*args, **kwargs):
+        verify_jwt_in_request()
+        claims = get_jwt_claims()
+        if not claims['status']:
+            return {'status' : 'FORBIDDEN', 'message' : 'Internal Only!'}, 403
+        else:
+            return fn(*args, **kwargs) 
+    return wrapper
 
 
 if os.environ.get('FLASK_ENV', 'Production') == "Production":
@@ -65,8 +65,13 @@ app.register_blueprint(bp_zodiak, url_prefix = '/zodiak')
 from blueprints.zdetail import bp_zodiakDetail
 app.register_blueprint(bp_zodiakDetail, url_prefix = '/detail')
 
+
 from blueprints.mine import bp_mine
 app.register_blueprint(bp_mine, url_prefix= '/mine')
+
+from blueprints.auth import bp_auth
+app.register_blueprint(bp_auth, url_prefix = '/auth')
+
 
 
 

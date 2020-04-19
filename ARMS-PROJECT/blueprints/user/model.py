@@ -3,7 +3,7 @@ from flask_restful import fields
 from sqlalchemy import Integer, ForeignKey, String, Column
 from sqlalchemy.sql import func
 from datetime import datetime
-# from blueprints.client.model import Client
+
 
 class User(db.Model):
     __tablename__ = "user"
@@ -22,11 +22,10 @@ class User(db.Model):
         'password' : fields.String,
         'status' : fields.String
     }
-    # jwt_claim_fields = {
-    #     'client_key' : fields.String,
-    #     'status' : fields.String,
-    #     'internal' : fields.Boolean 
-    # }
+    jwt_claim_fields = {
+     
+        'status' : fields.Boolean
+    }
 
 
     def __init__(self,name,password,salt,status):
