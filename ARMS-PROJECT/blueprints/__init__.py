@@ -65,6 +65,9 @@ app.register_blueprint(bp_zodiak, url_prefix = '/zodiak')
 from blueprints.zdetail import bp_zodiakDetail
 app.register_blueprint(bp_zodiakDetail, url_prefix = '/detail')
 
+from blueprints.mine import bp_mine
+app.register_blueprint(bp_mine, url_prefix= '/mine')
+
 
 
 

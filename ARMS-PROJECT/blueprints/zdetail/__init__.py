@@ -1,4 +1,4 @@
-import requests
+import requests, json
 from flask import Blueprint
 from flask_restful import Api, reqparse, Resource, marshal
 from blueprints import app
@@ -19,16 +19,20 @@ class ZodiakDetailResource(Resource):
         parser.add_argument('zodiak', location='args', required=True)
         args = parser.parse_args()
 
-        url = ('%s?sign=%s&day=today' % (self.host,args['zodiak']))
+        url = ('%s%s' % (self.host,args['zodiak']))
         payload = "{}"
         headers = {
         'Content-Type': 'application/json'
         }
         print(url)
-        response = requests.request("POST", url, headers=headers, data = payload)
+        response = requests.get(url)
+        # response = requests.request("POST", url, headers=headers, data = payload)
 
         # response = requests.get(self.host, params={'sign' : args['zodiak'], 'day' : 'today'})
-        return response.json(), 200, {'Content-Type': 'application/json'}
+
+        # print(len(response.json()))
+
+        return response.json()[0], 200, {'Content-Type': 'application/json'}
 
 
 
