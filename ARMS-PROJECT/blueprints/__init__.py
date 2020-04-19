@@ -24,6 +24,7 @@ app = Flask(__name__)
 #             return fn(*args, **kwargs) 
 #     return wrapper
 
+
 if os.environ.get('FLASK_ENV', 'Production') == "Production":
     app.config.from_object(config.ProductionConfig)
 else:
