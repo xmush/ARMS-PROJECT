@@ -16,6 +16,10 @@ __pycache__/
 # C extensions
 *.so
 
+#cfg
+.cfg
+config.cfg
+
 # Distribution / packaging
 .Python
 build/
