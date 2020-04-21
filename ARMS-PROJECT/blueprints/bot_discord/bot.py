@@ -9,11 +9,12 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 client = discord.Client()
-bot = Bot("!")
+# bot = Bot("!")
 
 @client.event
-async def on_ready():
-    print(f'{client.user.name} has connected to Discord!')
+aslync def on_ready():
+    print(f'{client.user} has connected to Discord!')
+
 
 @client.event
 async def on_member_join(member):
@@ -51,23 +52,23 @@ async def on_message(message):
 
 
 
-def check(ctx):
-    return lambda m: m.author == ctx.author and m.channel == ctx.channel
+# def check(ctx):
+#     return lambda m: m.author == ctx.author and m.channel == ctx.channel
 
-async def get_input_of_type(func, ctx):
-    while True:
-        try:
-            msg = await bot.wait_for('message', check=check(ctx))
-            return func(msg.content)
-        except ValueError:
-            continue
+# async def get_input_of_type(func, ctx):
+#     while True:
+#         try:
+#             msg = await bot.wait_for('message', check=check(ctx))
+#             return func(msg.content)
+#         except ValueError:
+#             continue
 
-@bot.command()
-async def calc(ctx):
-    await ctx.send("What is the first number?")
-    firstnum = await get_input_of_type(int, ctx)
-    await ctx.send("What is the second number?")
-    secondnum = await get_input_of_type(int, ctx)
-    await ctx.send(f"{firstnum} + {secondnum} = {firstnum+secondnum}")
+# @bot.command()
+# async def calc(ctx):
+#     await ctx.send("What is the first number?")
+#     firstnum = await get_input_of_type(int, ctx)
+#     await ctx.send("What is the second number?")
+#     secondnum = await get_input_of_type(int, ctx)
+#     await ctx.send(f"{firstnum} + {secondnum} = {firstnum+secondnum}")
 
 client.run(TOKEN)
