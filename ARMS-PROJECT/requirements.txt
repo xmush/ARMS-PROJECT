@@ -6,4 +6,5 @@ flask-script
 pymysql
 flask-jwt-extended
 requests
-discord.py==1.3.3
+discord.py
+python-dotenv

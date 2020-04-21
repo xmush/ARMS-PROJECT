@@ -54,17 +54,17 @@ class MineResource(Resource):
             args['name1'] : zodiak1,
             args['name2'] : zodiak2,
             'compatibility_status' : compability_with,
-            'partner_recommend_zodiac' : respon1['compatibility'],
-            'partner_traits' : {
-                'mental' : respon2['mental_traits'],
-                'physical' : respon2['physical_traits']
-            },
-            'your_element' : respon1['element'],
-            'partner_element' : respon2['element']
+            'partner_recommend_zodiac' : respon1['compatibility']
+            # 'partner_traits' : {
+            #     'mental' : respon2['mental_traits'],
+            #     'physical' : respon2['physical_traits']
+            # },
+            # 'your_element' : respon1['element'],
+            # 'partner_element' : respon2['element']
 
         }
 
-        print(result)
+        # print(result)
         # ?name=romli&bod=19-02-1991
         # return {'host' : self.host}, 200, {'Content-Type': 'application/json'}
         # return make_response(jsonify(jsonify(result)), 200)
