@@ -72,6 +72,9 @@ app.register_blueprint(bp_mine, url_prefix= '/mine')
 from blueprints.auth import bp_auth
 app.register_blueprint(bp_auth, url_prefix = '/auth')
 
+from blueprints.bot_discord import bp_discord
+app.register_blueprint(bp_discord, url_prefix= '/discord')
+
 
 
 

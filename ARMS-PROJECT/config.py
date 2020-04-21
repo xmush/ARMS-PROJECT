@@ -24,6 +24,9 @@ class Config():
     ZODIAK_SERVICE = cfg['zodiak']['service']
     ZDETAIL_HOST = cfg['zdetail']['host']
 
+    DISCORD_TOKEN = cfg['discord']['token']
+    DISCORD_CONFIG = cfg['discord']['guild']
+
 class DevelopmentConfig(Config):
     APP_DEBUG = True
     DEBUG = True
