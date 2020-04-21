@@ -24,17 +24,7 @@ class ZodiakResource(Resource):
         url = ('%sservice=%s&nama=%s&tanggal=%s' % (self.host, self.service, args['name'], args['bod']))
         response = requests.get(url)
 
-        return response.json(), 200, {'Content-Type': 'application/json'}
-        
-        # url = ('%s?sign=%s&day=today' % (self.host,args['zodiak']))
-        # payload = "{}"
-        # headers = {
-        # 'Content-Type': 'application/json'
-        # }
-        # print(url)
-        # response = requests.request("POST", url, headers=headers, data = payload)
-
-        # return response.json(), 200, {'Content-Type': 'application/json'}
+        return response.json()['data']['zodiak'], 200, {'Content-Type': 'application/json'}
 
 
 api.add_resource(ZodiakResource, '')
