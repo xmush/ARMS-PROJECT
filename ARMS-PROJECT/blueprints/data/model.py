@@ -21,8 +21,9 @@ class Data(db.Model):
         'id' : fields.Integer,
         'user_id' : fields.Integer,
         'name_couple' : fields.String,
-        'bod_couple' : field.String,
-        'respon' : fields.String}
+        'bod_couple' : fields.String,
+        'respon' : fields.String
+        }
    
     def __init__(self,user_id,name_couple,bod_couple,respon):
         self.user_id = user_id

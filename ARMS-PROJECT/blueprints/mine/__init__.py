@@ -27,12 +27,16 @@ class MineResource(Resource):
         zodiak1 = requests.get(self.host+'/zodiak?name='+args['name1']+'&bod='+args['bod1']).json()
         zodiak2 = requests.get(self.host+'/zodiak?name='+args['name2']+'&bod='+args['bod2']).json()
 
+        if zodiak1["Zodiak"] == "sagitarius" or zodiak1["Zodiak"] == "Sagitarius" :
+            zodiak1["Zodiak"] = "Sagittarius"
+        if zodiak2["Zodiak"] == "sagitarius" or zodiak2["Zodiak"] == "Sagitarius" :
+            zodiak2["Zodiak"] = "Sagittarius"
 
 
         # print(zodiak1.json())
 
-        respon1 = requests.get(self.host+'/detail?zodiak='+zodiak1).json()
-        respon2 = requests.get(self.host+'/detail?zodiak='+zodiak2).json()
+        respon1 = requests.get(self.host+'/detail?zodiak='+zodiak1["Zodiak"]).json()
+        respon2 = requests.get(self.host+'/detail?zodiak='+zodiak2["Zodiak"]).json()
 
         compability = respon1['compatibility']
 
@@ -44,32 +48,25 @@ class MineResource(Resource):
                 zdk = 'Taurus'
             new_compability.append(zdk)
 
-        compability_with = zodiak2 in new_compability
+        compability_with = zodiak2["Zodiak"] in new_compability
 
 
 
         # print(new_compability)
 
         result = {
-            args['name1'] : zodiak1,
-            args['name2'] : zodiak2,
+            "your_name" : args["name1"],
+            "your_zodiak" : zodiak1["Zodiak"],
+            "partner_name" : args["name2"],
+            "partner_zodiak" : zodiak2["Zodiak"],
             'compatibility_status' : compability_with,
-            'partner_recommend_zodiac' : respon1['compatibility']
-            # 'partner_traits' : {
-            #     'mental' : respon2['mental_traits'],
-            #     'physical' : respon2['physical_traits']
-            # },
-            # 'your_element' : respon1['element'],
-            # 'partner_element' : respon2['element']
-
+            'partner_recommend_zodiac' : respon1["compatibility"],
+            "partner_good_traits" : respon2["good_traits"],
+            "partner_bad_traits" : respon2["bad_traits"],
+            "your_element" : respon1["element"],
+            "partner_element" : respon2["element"]
         }
-
-        # print(result)
-        # ?name=romli&bod=19-02-1991
-        # return {'host' : self.host}, 200, {'Content-Type': 'application/json'}
-        # return make_response(jsonify(jsonify(result)), 200)
-        #, 200, {'Content-Type': 'application/json'}
-
+        
         return result, 200, {'Content-Type': 'application/json'}
 
 

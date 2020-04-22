@@ -18,39 +18,21 @@ class ZodiakDetailResource(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('zodiak', location='args', required=True)
         args = parser.parse_args()
+    
 
         url = ('%s%s' % (self.host,args['zodiak']))
-        payload = "{}"
-        headers = {
-        'Content-Type': 'application/json'
-        }
-        print(url)
+        
         response = requests.get(url)
-        # response = requests.request("POST", url, headers=headers, data = payload)
 
-        # response = requests.get(self.host, params={'sign' : args['zodiak'], 'day' : 'today'})
+        result = {
+            "zodiac" : args["zodiak"],
+            "compatibility" : response.json()[0]["compatibility"],
+            "good_traits" : response.json()[0]["good_traits"],
+            "bad_traits" : response.json()[0]["bad_traits"],
+            "element" : response.json()[0]["element"]
+        }
 
-        # print(len(response.json()))
+        return result, 200, {'Content-Type': 'application/json'}
 
-        return response.json()[0], 200, {'Content-Type': 'application/json'}
-
-
-
-#         rq = requests.get(self.wio_host + '/ip', params={'ip': args['ip']})
-#         geo = rq.json()
-#         lat = geo['latitude']
-#         lon = geo['longitude']
-#         rq = requests.get(self.wio_host + '/current', params={'lat': lat, 'lon': lon})
-#         current = rq.json()
-
-#         return {
-#             'city': geo['city'],
-#             'organization': geo['organization'],
-#             'timezone': geo['timezone'],
-#             'current_weather': {
-#                 'date': current['data'][0]['datetime'],
-#                 'temp': current['data'][0]['temp']
-#             }
-#         }
 
 api.add_resource(ZodiakDetailResource, '')
