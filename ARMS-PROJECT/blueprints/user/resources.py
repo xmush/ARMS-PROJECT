@@ -4,6 +4,8 @@ from .model import User
 from blueprints import db, app, internal_required
 from sqlalchemy import desc
 import uuid, hashlib
+from datetime import datetime
+from dateutil.parser import parse
 
 bp_user = Blueprint('user',__name__)
 api = Api(bp_user)
@@ -18,37 +20,50 @@ class UserResource(Resource):
         if qry is not None:
             return marshal(qry, User.response_fields),200
         return {'status' : 'NOT_FOUND'}, 404
-    @internal_required 
+        
     def post(self): 
         parser = reqparse.RequestParser()
         parser.add_argument('name', location='json', required=True)
+        parser.add_argument('bod', location='json', required=True)
         parser.add_argument('password', location='json', required=True)
-        parser.add_argument('status', type=bool, location='json', required=True)
+        # parser.add_argument('status', type=bool, location='json', required=True)
         args = parser.parse_args()
 
         salt = uuid.uuid4().hex
         hash_pass = hashlib.sha512(('%s%s' % (args['password'], salt)).encode('utf-8')).hexdigest()
 
-        user = User(args['name'], hash_pass, salt, args['status'])
+        bod = datetime.strptime(args['bod'], '%d/%m/%Y')
+        status = False
+        user = User(args['name'],bod, hash_pass, salt, status)
         db.session.add(user)
         db.session.commit()
+
 
         app.logger.debug('DEBUG : %s', user )
         return marshal(user, User.response_fields), 200 , {'Content-Type':'application/json'}
     
-    @internal_required 
+    @internal_required
     def put(self,id): 
         parser = reqparse.RequestParser()
         parser.add_argument('name', location='json', required=True)
+        parser.add_argument('bod', location='json', required=True)
         parser.add_argument('password', location='json', required=True)
-        parser.add_argument('status' , type=bool, location='json', required=True)
+        parser.add_argument('status', type=bool, location='json', required=False)
         args = parser.parse_args()
 
         qry = User.query.get(id)
+
         if qry is None :
             return {'status' : 'NOT_FOUND'}, 404
+        
+        salt = qry.salt
+        hash_pass = hashlib.sha512(('%s%s' % (args['password'], salt)).encode('utf-8')).hexdigest()
+
+        bod = datetime.strptime(args['bod'], '%d/%m/%Y')
+
         qry.name = args['name']
-        qry.password = args['password']
+        qry.bod = bod
+        qry.password = hash_pass
         qry.status = args['status']
 
         db.session.commit()
@@ -63,9 +78,9 @@ class UserResource(Resource):
         db.session.delete(qry)
         db.session.commit()
        
-    @internal_required 
-    def patch(self): 
-        return 'Not yet implement',501
+    # @internal_required 
+    # def patch(self): 
+    #     return 'Not yet implement',501
 
 class UserList(Resource):
     def __init__(self):
@@ -76,7 +91,7 @@ class UserList(Resource):
         parser.add_argument('p', type=int, location='args', default=1)
         parser.add_argument('rp', type=int, location='args', default=25)
         parser.add_argument('name', location='args', help='invalid status')
-        parser.add_argument('orderby', location='args', help='invalid order by value')
+        parser.add_argument('orderby', location='args', help='invalid order by value', choices=('id', 'name', 'status'))
         parser.add_argument('sort', location='args', help='invalid sort value', choices=('desc', 'asc'))
 
         args = parser.parse_args()

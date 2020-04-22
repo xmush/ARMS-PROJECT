@@ -7,6 +7,9 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from logging.handlers import RotatingFileHandler
 from flask_jwt_extended import JWTManager, verify_jwt_in_request,get_jwt_claims
+from werkzeug.contrib.cache import SimpleCache
+
+cache = SimpleCache()
 
 app = Flask(__name__)
 
@@ -27,6 +30,8 @@ def internal_required(fn):
 
 if os.environ.get('FLASK_ENV', 'Production') == "Production":
     app.config.from_object(config.ProductionConfig)
+if os.environ.get('FLASK_ENV', 'Production') == "Testing":
+    app.config.from_object(config.TestingConfig)
 else:
     app.config.from_object(config.DevelopmentConfig)
 
@@ -71,6 +76,13 @@ app.register_blueprint(bp_mine, url_prefix= '/mine')
 
 from blueprints.auth import bp_auth
 app.register_blueprint(bp_auth, url_prefix = '/auth')
+
+from blueprints.data.resources import bp_data
+app.register_blueprint(bp_data, url_prefix= '/data')
+
+
+# from blueprints.bot_discord import bp_discord
+# app.register_blueprint(bp_discord, url_prefix= '/discord')
 
 
 

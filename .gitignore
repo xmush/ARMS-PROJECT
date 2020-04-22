@@ -200,3 +200,4 @@ pip-selfcheck.json
 
 # End of https://www.gitignore.io/api/venv,linux,flask,python,visualstudiocode
 log/
+config.cfg

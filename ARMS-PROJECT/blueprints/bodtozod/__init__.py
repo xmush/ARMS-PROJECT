@@ -20,11 +20,21 @@ class ZodiakResource(Resource):
         parser.add_argument('name', location='args', required=True)
         parser.add_argument('bod', location='args', required=True)
         args = parser.parse_args()
+        
+        # url = self.host
+        data = {
+            'service' : self.service,
+            'nama' : args['name'],
+            'tanggal' : args['bod']
+        }
 
-        url = ('%sservice=%s&nama=%s&tanggal=%s' % (self.host, self.service, args['name'], args['bod']))
-        response = requests.get(url)
-
-        return response.json()['data']['zodiak'], 200, {'Content-Type': 'application/json'}
+        # url = ('%sservice=%s&nama=%s&tanggal=%s' % (self.host, self.service, args['name'], args['bod']))
+        response = requests.get(self.host, params=data)
+        print(response.json())
+        result = {
+            "Zodiak" : response.json()['data']['zodiak'] 
+        }
+        return result, 200, {'Content-Type': 'application/json'}
 
 
 api.add_resource(ZodiakResource, '')
