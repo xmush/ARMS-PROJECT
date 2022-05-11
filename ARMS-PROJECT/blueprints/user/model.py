@@ -9,6 +9,7 @@ class User(db.Model):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     name = db.Column(db.String(30), unique = True, nullable = False)
+    bod = db.Column(db.Date, nullable=False)
     password = db.Column(db.String(255), nullable = False)
     status = db.Column(db.Boolean, nullable = False)
     salt = db.Column(db.String(255))
@@ -19,6 +20,7 @@ class User(db.Model):
     response_fields = {
         'id' : fields.Integer,
         'name' : fields.String,
+        'bod' : fields.String,
         'password' : fields.String,
         'status' : fields.String
     }
@@ -28,8 +30,9 @@ class User(db.Model):
     }
 
 
-    def __init__(self,name,password,salt,status):
+    def __init__(self,name,bod,password,salt,status):
         self.name = name
+        self.bod = bod
         self.password = password
         self.salt = salt
         self.status = status
